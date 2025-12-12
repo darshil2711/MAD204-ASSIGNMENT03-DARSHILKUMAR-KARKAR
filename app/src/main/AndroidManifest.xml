@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment3NotesMediaManager">
+        <service android:name=".service.ReminderService" />
         <activity
             android:name=".ui.AddEditNoteActivity"
             android:exported="false" />
