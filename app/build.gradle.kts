@@ -47,6 +47,7 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.activity:activity-ktx:1.9.0")
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.cardview)
 
     // Room for database
     val roomVersion = "2.6.1"
