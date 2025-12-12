@@ -1,39 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+ * Course: MAD204-01
+ * Assignment: Assignment 3
+ * Student: Darshilkumar Karkar (A00203357)
+ * Date: 2025-12-12
+ * Description: Layout for a single item (a card) in the notes RecyclerView.
+-->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/card_background_light">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="679dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.307">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="686dp"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="191dp"
-            android:textAlignment="center"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/tvContent"
-            android:layout_width="364dp"
-            android:layout_height="match_parent"
-            android:textSize="18sp" />
-
+        <!-- TextView for the note's title -->
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="197dp"
-            android:textSize="34sp" />
+            android:layout_width="327dp"
+            android:layout_height="74dp"
+            android:layout_marginBottom="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/md_theme_onSurface"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:text="Example Note Title" />
 
-    </androidx.cardview.widget.CardView>
+        <!-- TextView for the note's content -->
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="339dp"
+            android:layout_height="140dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/md_theme_onSurfaceVariant"
+            android:textSize="20sp"
+            tools:text="This is a preview of the note content. It can span multiple lines but will be truncated if it is too long." />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

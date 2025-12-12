@@ -1,8 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Assignment3NotesMediaManager" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!--
+      ACTION: The parent theme MUST have an ActionBar.
+      Use "Theme.Material3.DayNight" or a similar theme.
+    -->
+    <style name="Base.Theme.Assignment3NotesMediaManager" parent="Theme.Material3.DayNight">
+        <!-- Customize your theme here. -->
     </style>
 
     <style name="Theme.Assignment3NotesMediaManager" parent="Base.Theme.Assignment3NotesMediaManager" />
