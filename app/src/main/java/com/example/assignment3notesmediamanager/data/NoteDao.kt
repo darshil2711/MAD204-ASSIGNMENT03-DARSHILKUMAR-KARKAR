@@ -1,29 +1,29 @@
-package com.example.assignment3notesmediamanager.data
-
-import androidx.room.*
-import kotlinx.coroutines.flow.Flow
-
 /**
  * Course: MAD204-01
  * Assignment: Assignment 3
  * Student: Darshilkumar Karkar (A00203357)
  * Date: 2025-12-12
- * Description: Data Access Object for Notes.
+ * Description: Data Access Object (DAO) for the Note entity. Defines the database operations.
  */
+package com.example.assignment3notesmediamanager.data
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+
+
 @Dao
 interface NoteDao {
-    @Query("SELECT * FROM notes ORDER BY id DESC")
-    fun getAllNotes(): Flow<List<Note>>
-
-    @Query("SELECT * FROM notes WHERE isFavorite = 1")
-    fun getFavoriteNotes(): Flow<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNote(note: Note)
 
-    @Delete
-    suspend fun deleteNote(note: Note)
 
-    @Query("DELETE FROM notes")
-    suspend fun deleteAll()
+    @Query("SELECT * FROM notes ORDER BY id DESC")
+    suspend fun getAllNotes(): List<Note>
+
+
+    @Query("SELECT * FROM notes WHERE isFavorite = 1 ORDER BY id DESC")
+    suspend fun getFavoriteNotes(): List<Note>
 }

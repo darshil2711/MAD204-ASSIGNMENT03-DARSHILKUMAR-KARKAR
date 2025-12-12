@@ -1,5 +1,19 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_settings" android:title="Settings" />
-    <item android:id="@+id/action_export" android:title="Export JSON" />
-    <item android:id="@+id/action_backup" android:title="Save Backup" />
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Course: MAD204-01
+ * Assignment: Assignment 3
+ * Student: Darshilkumar Karkar (A00203357)
+ * Date: 2025-12-12
+ * Description: Defines the options menu for the MainActivity.
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Menu item to open the Settings screen -->
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="ifRoom" />
+
 </menu>

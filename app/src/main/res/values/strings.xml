@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Assignment3NotesMediaManager</string>
+    <string name="add_note">Add Note</string>
+    <string name="enable_dark_mode">Enable Dark Mode</string>
+    <string name="save_settings">Save Settings</string>
+    <string name="note_media_preview">Note media preview</string>
+    <string name="settings">Settings</string>
+
 </resources>

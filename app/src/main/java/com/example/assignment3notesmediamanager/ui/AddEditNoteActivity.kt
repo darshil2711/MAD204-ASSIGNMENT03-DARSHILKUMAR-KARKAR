@@ -2,7 +2,7 @@ package com.example.assignment3notesmediamanager.ui
 
 import android.net.Uri
 import android.os.Bundle
-import android.widget.*
+import android.widget.*import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -18,20 +18,11 @@ import kotlinx.coroutines.launch
  * Date: 2025-12-12
  * Description: Activity to add or edit a note, including media picker.
  */
-class AddEditNoteActivity : AppCompatActivity() {
+class AddEditNoteActivity : BaseActivity() {
 
     private var selectedUri: Uri? = null
     private lateinit var ivPreview: ImageView
-
-    // Media Picker Registration
-    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        uri?.let {
-            selectedUri = it
-            ivPreview.setImageURI(it)
-            // Persist permission for the URI
-            contentResolver.takePersistableUriPermission(it, android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        }
-    }
+    private lateinit var getContent: ActivityResultLauncher<String> // Declare the launcher here
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +34,16 @@ class AddEditNoteActivity : AppCompatActivity() {
         val btnSave = findViewById<Button>(R.id.btnSaveNote)
         val cbFavorite = findViewById<CheckBox>(R.id.cbFavorite)
         ivPreview = findViewById(R.id.ivMediaPreview)
+
+        // Initialize the launcher here, after ivPreview is assigned
+        getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            uri?.let {
+                selectedUri = it
+                ivPreview.setImageURI(it)
+                // Persist permission for the URI
+                contentResolver.takePersistableUriPermission(it, android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+        }
 
         btnMedia.setOnClickListener {
             getContent.launch("image/*") // Launch system picker
@@ -71,3 +72,4 @@ class AddEditNoteActivity : AppCompatActivity() {
         }
     }
 }
+
